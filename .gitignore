@@ -1,0 +1,20 @@
+# Tooling
+.todos/
+.claude/
+.sidecar/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# AI
+CLAUDE.md
+AGENTS.md
+TODO.md
