@@ -24,11 +24,14 @@
     <style>
         :root {
             --bg:             #0A0A0A;
+            --bg-rgb:         10, 10, 10;
             --surface:        #0F0F0F;
             --border:         #1E1E1E;
 
             --orange:         #E07020;
+            --orange-rgb:     224, 112, 32;
             --orange-bright:  #F09040;
+            --orange-bright-rgb: 240, 144, 64;
             --orange-dim:     #A05818;
 
             --text:           #A8A098;
@@ -37,7 +40,9 @@
             --text-muted:     #383430;
 
             --green:          #48A848;
+            --green-rgb:      72, 168, 72;
             --red:            #D04030;
+            --red-rgb:        208, 64, 48;
 
             --font-display:   'DSEG14-Classic', 'VT323', monospace;
             --font-freq:      'DSEG7-Classic', 'VT323', monospace;
@@ -46,11 +51,14 @@
 
         [data-theme="light"] {
             --bg:             #F8F6F3;
+            --bg-rgb:         248, 246, 243;
             --surface:        #EFECEA;
             --border:         #D0CCC6;
 
             --orange:         #D06018;
+            --orange-rgb:     208, 96, 24;
             --orange-bright:  #E07020;
+            --orange-bright-rgb: 224, 112, 32;
             --orange-dim:     #C87040;
 
             --text:           #3A3530;
@@ -59,7 +67,9 @@
             --text-muted:     #C0BAB2;
 
             --green:          #2E8A2E;
+            --green-rgb:      46, 138, 46;
             --red:            #B83020;
+            --red-rgb:        184, 48, 32;
         }
         [data-theme="light"] .seg,
         [data-theme="light"] .band-item.bright,
@@ -67,10 +77,10 @@
             text-shadow: none !important;
         }
         [data-theme="light"] .navbar {
-            background: rgba(248, 246, 243, 0.88);
+            background: rgba(var(--bg-rgb), 0.88);
         }
         [data-theme="light"] .navbar-scrolled {
-            background: rgba(248, 246, 243, 0.96);
+            background: rgba(var(--bg-rgb), 0.96);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -104,9 +114,9 @@
             letter-spacing: 0.04em;
             word-spacing: 0.25em;
             text-shadow:
-                0 0 10px rgba(224, 112, 32, 0.4),
-                0 0 30px rgba(224, 112, 32, 0.15),
-                0 0 60px rgba(224, 112, 32, 0.06);
+                0 0 10px rgba(var(--orange-rgb), 0.4),
+                0 0 30px rgba(var(--orange-rgb), 0.15),
+                0 0 60px rgba(var(--orange-rgb), 0.06);
         }
 
         /* ---- Ghost segments (unlit segment background) ---- */
@@ -123,7 +133,7 @@
             font-size: inherit;
             letter-spacing: inherit;
             line-height: inherit;
-            color: rgba(224, 112, 32, 0.045);
+            color: rgba(var(--orange-rgb), 0.045);
             pointer-events: none;
             text-shadow: none;
         }
@@ -138,15 +148,15 @@
         }
         .dot-orange {
             background: var(--orange);
-            box-shadow: 0 0 6px var(--orange), 0 0 12px rgba(224,112,32,0.3);
+            box-shadow: 0 0 6px var(--orange), 0 0 12px rgba(var(--orange-rgb), 0.3);
         }
         .dot-green {
             background: var(--green);
-            box-shadow: 0 0 6px var(--green), 0 0 12px rgba(72,168,72,0.3);
+            box-shadow: 0 0 6px var(--green), 0 0 12px rgba(var(--green-rgb), 0.3);
         }
         .dot-red {
             background: var(--red);
-            box-shadow: 0 0 6px var(--red), 0 0 12px rgba(208,64,48,0.3);
+            box-shadow: 0 0 6px var(--red), 0 0 12px rgba(var(--red-rgb), 0.3);
         }
 
         /* ---- Buttons ---- */
@@ -173,13 +183,13 @@
             border-bottom: 2px solid var(--orange-dim);
             box-shadow:
                 0 1px 0 0 rgba(255,255,255,0.1) inset,
-                0 0 20px rgba(224, 112, 32, 0.12);
+                0 0 20px rgba(var(--orange-rgb), 0.12);
         }
         .btn-primary:hover {
             background: linear-gradient(180deg, var(--orange-bright) 20%, var(--orange) 100%);
             box-shadow:
                 0 1px 0 0 rgba(255,255,255,0.15) inset,
-                0 0 30px rgba(224, 112, 32, 0.25);
+                0 0 30px rgba(var(--orange-rgb), 0.25);
         }
         .btn-primary:active {
             background: linear-gradient(180deg, var(--orange) 0%, var(--orange-dim) 100%);
@@ -196,7 +206,7 @@
         }
         .btn-secondary:hover {
             color: var(--orange);
-            border-color: rgba(224, 112, 32, 0.3);
+            border-color: rgba(var(--orange-rgb), 0.3);
             background: linear-gradient(180deg, var(--surface) 20%, var(--bg) 100%);
         }
         .btn-secondary:active {
@@ -213,13 +223,13 @@
             left: 0;
             right: 0;
             z-index: 50;
-            background: rgba(10, 10, 10, 0.88);
+            background: rgba(var(--bg-rgb), 0.88);
             backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
             transition: all 0.3s ease;
         }
         .navbar-scrolled {
-            background: rgba(10, 10, 10, 0.96);
+            background: rgba(var(--bg-rgb), 0.96);
             box-shadow: 0 4px 30px rgba(0,0,0,0.4);
         }
         .nav-inner {
@@ -337,7 +347,7 @@
         }
         .band-item.bright {
             color: var(--orange);
-            text-shadow: 0 0 8px rgba(224, 112, 32, 0.3);
+            text-shadow: 0 0 8px rgba(var(--orange-rgb), 0.3);
         }
 
         /* ---- Two-column section ---- */
@@ -449,7 +459,7 @@
         /* ---- Mobile menu ---- */
         .mobile-menu {
             display: none;
-            background: rgba(10, 10, 10, 0.98);
+            background: rgba(var(--bg-rgb), 0.98);
             border-top: 1px solid var(--border);
         }
         .mobile-menu.open { display: block; }
@@ -477,11 +487,235 @@
         }
 
         /* ---- Footer ---- */
+        footer {
+            padding: 3rem 0 2rem;
+            border-top: 1px solid var(--border);
+        }
         .footer-inner {
             max-width: 80rem;
             margin: 0 auto;
             padding: 0 2rem;
         }
+        .footer-wave {
+            margin-bottom: 1.5rem;
+            opacity: 0.3;
+        }
+        .footer-wave svg {
+            width: 100%;
+            height: 8px;
+        }
+        .footer-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .footer-label {
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+        }
+        .footer-73 {
+            font-family: var(--font-freq);
+            font-weight: bold;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            display: inline-block;
+        }
+
+        /* ---- Skip link ---- */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            font-family: var(--font-mono);
+            color: var(--orange);
+            background: var(--surface);
+            padding: 0.5rem 1rem;
+            z-index: 100;
+            text-decoration: none;
+        }
+        .skip-link:focus {
+            left: 0;
+        }
+
+        /* ---- Reusable helpers ---- */
+        .theme-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-dim);
+            padding: 0.25rem;
+            display: flex;
+            align-items: center;
+        }
+        .nav-logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .nav-logo-img {
+            height: 2.4rem;
+            width: auto;
+        }
+        .nav-brand {
+            font-size: 1rem;
+            text-shadow: none;
+            display: inline-block;
+        }
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .nav-mobile-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .btn-nav {
+            padding: 0.4rem 1.2rem;
+            font-size: 0.62rem;
+        }
+        .mobile-menu-inner {
+            padding: 1.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+        .nav-link-mobile {
+            font-size: 0.82rem;
+        }
+        .seg-line {
+            display: block;
+        }
+        .seg-line-center {
+            display: block;
+            width: fit-content;
+            margin: 0 auto;
+        }
+        .h2-section {
+            font-size: clamp(1.4rem, 3vw, 2.4rem);
+            line-height: 1.15;
+        }
+        .h2-mission {
+            font-size: clamp(1.3rem, 3vw, 2.2rem);
+            line-height: 1.2;
+        }
+        .h2-cta {
+            font-size: clamp(1.4rem, 3.5vw, 2.6rem);
+            letter-spacing: 0.06em;
+        }
+        .p-spaced {
+            margin-top: 1.25rem;
+        }
+        .text-orange {
+            color: var(--orange);
+        }
+        .bg-surface {
+            background: var(--surface);
+        }
+        .text-center {
+            text-align: center;
+        }
+        .callout-body {
+            font-size: 0.88rem;
+            line-height: 1.8;
+            color: var(--text);
+            font-weight: 400;
+        }
+        .dot-sm {
+            width: 5px;
+            height: 5px;
+        }
+        .dot-xs {
+            width: 4px;
+            height: 4px;
+        }
+        .btn-disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        .hero-tagline {
+            font-size: clamp(0.72rem, 1.3vw, 0.88rem);
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            color: var(--text-dim);
+        }
+        .hero-title-lg {
+            font-size: clamp(2rem, 6vw, 4.5rem);
+            line-height: 0.95;
+        }
+        .hero-title-sm {
+            font-size: clamp(1.3rem, 4vw, 3rem);
+            line-height: 1;
+            margin-top: 0.3em;
+        }
+        .freq-display {
+            font-family: var(--font-freq);
+            font-weight: bold;
+            font-size: clamp(2.5rem, 9vw, 6.5rem);
+            letter-spacing: 0.04em;
+        }
+        .freq-main {
+            font-family: var(--font-freq);
+            font-weight: bold;
+            color: var(--orange-bright);
+            position: relative;
+            z-index: 1;
+            text-shadow:
+                0 0 15px rgba(var(--orange-rgb), 0.6),
+                0 0 40px rgba(var(--orange-rgb), 0.2),
+                0 0 80px rgba(var(--orange-rgb), 0.08);
+        }
+        .freq-sub {
+            font-family: var(--font-freq);
+            font-weight: bold;
+            color: var(--orange);
+            position: relative;
+            z-index: 1;
+            text-shadow:
+                0 0 10px rgba(var(--orange-rgb), 0.4),
+                0 0 25px rgba(var(--orange-rgb), 0.12);
+        }
+        .bandscope {
+            width: clamp(240px, 55vw, 480px);
+            height: clamp(32px, 4vw, 48px);
+            display: block;
+            margin: 0.5rem auto 0;
+        }
+        .scroll-down {
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+        .scroll-arrow {
+            animation: bounce 2s ease-in-out infinite;
+        }
+        .cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+        .cta-subtitle {
+            color: var(--text);
+            font-weight: 400;
+            max-width: 34rem;
+            margin: 1.5rem auto 2.5rem;
+            line-height: 1.8;
+        }
+        .btn-center {
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+        .icon-hidden { display: none; }
     </style>
     <script>
         (function(){var t=localStorage.getItem('theme');if(t&&t!=='dark')document.documentElement.setAttribute('data-theme',t);})();
@@ -490,50 +724,59 @@
 <body>
 
 <!-- Skip to main content -->
-<a href="#main-content" style="position:absolute;left:-9999px;top:0;font-family:var(--font-mono);color:var(--orange);background:var(--surface);padding:0.5rem 1rem;z-index:100;" onfocus="this.style.left='0'" onblur="this.style.left='-9999px'">Skip to main content</a>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- SVG icon definitions -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+    <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    </symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+    </symbol>
+</svg>
 
 <!-- ========== NAVIGATION ========== -->
 <nav id="navbar" class="navbar" aria-label="Main navigation">
     <div class="nav-inner">
-        <a href="#" style="text-decoration:none;display:flex;align-items:center;gap:0.6rem;">
-            <img src="assets/images/hccq-rig.svg" alt="" style="height:2.4rem;width:auto;">
-            <span class="seg seg-ghost" data-ghost="88888" style="font-size:1rem;text-shadow:none;display:inline-block;">HCCQ</span>
+        <a href="#" class="nav-logo">
+            <img src="assets/images/hccq-rig.svg" alt="HCCQ logo" class="nav-logo-img">
+            <span class="seg seg-ghost nav-brand" data-ghost="88888">HCCQ</span>
         </a>
 
-        <div class="desktop-nav" style="display:flex;align-items:center;gap:2rem;">
-            <button id="theme-toggle" aria-label="Toggle theme" style="background:none;border:none;cursor:pointer;color:var(--text-dim);padding:0.25rem;display:flex;align-items:center;">
-                <svg class="theme-icon-sun" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-                <svg class="theme-icon-moon" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <div class="desktop-nav">
+            <button id="theme-toggle" aria-label="Toggle theme" class="theme-btn">
+                <svg class="theme-icon-sun" width="18" height="18"><use href="#icon-sun"/></svg>
+                <svg class="theme-icon-moon icon-hidden" width="18" height="18"><use href="#icon-moon"/></svg>
             </button>
             <a href="#about" class="nav-link">About</a>
             <a href="#mission" class="nav-link">Mission</a>
             <a href="#meetings" class="nav-link">Meetings</a>
             <a href="#welcome" class="nav-link">Welcome</a>
-            <a href="#involved" class="btn btn-primary" style="padding:0.4rem 1.2rem;font-size:0.62rem;">Join Us</a>
+            <a href="#involved" class="btn btn-primary btn-nav">Join Us</a>
         </div>
 
-        <div style="display:flex;align-items:center;gap:0.75rem;">
-            <button id="theme-toggle-mobile" aria-label="Toggle theme" class="mobile-btn" style="background:none;border:none;cursor:pointer;color:var(--text-dim);padding:0.25rem;display:flex;align-items:center;">
-                <svg class="theme-icon-sun" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-                <svg class="theme-icon-moon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <div class="nav-mobile-group">
+            <button id="theme-toggle-mobile" aria-label="Toggle theme" class="mobile-btn theme-btn">
+                <svg class="theme-icon-sun" width="20" height="20"><use href="#icon-sun"/></svg>
+                <svg class="theme-icon-moon icon-hidden" width="20" height="20"><use href="#icon-moon"/></svg>
             </button>
-        <button id="mobile-menu-btn" class="mobile-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu"
-            style="display:flex;align-items:center;justify-content:center;background:none;border:none;color:var(--text-dim);cursor:pointer;padding:0.25rem;">
-            <svg width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
-                <path id="close-icon" style="display:none;" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-        </button>
+            <button id="mobile-menu-btn" class="mobile-btn theme-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+                <svg width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+                    <path id="close-icon" class="icon-hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
         </div>
     </div>
 
     <div id="mobile-menu" class="mobile-menu">
-        <div style="padding:1.5rem 2rem;display:flex;flex-direction:column;gap:1.25rem;">
-            <a href="#about" class="nav-link" style="font-size:0.82rem;">About</a>
-            <a href="#mission" class="nav-link" style="font-size:0.82rem;">Mission</a>
-            <a href="#meetings" class="nav-link" style="font-size:0.82rem;">Meetings</a>
-            <a href="#welcome" class="nav-link" style="font-size:0.82rem;">Welcome</a>
-            <a href="#involved" class="btn btn-primary" style="justify-content:center;margin-top:0.5rem;">Join Us</a>
+        <div class="mobile-menu-inner">
+            <a href="#about" class="nav-link nav-link-mobile">About</a>
+            <a href="#mission" class="nav-link nav-link-mobile">Mission</a>
+            <a href="#meetings" class="nav-link nav-link-mobile">Meetings</a>
+            <a href="#welcome" class="nav-link nav-link-mobile">Welcome</a>
+            <a href="#involved" class="btn btn-primary btn-center">Join Us</a>
         </div>
     </div>
 </nav>
@@ -546,21 +789,21 @@
 
     <!-- Tagline -->
     <div class="hero-enter" style="animation-delay:0.1s;margin-bottom:clamp(1rem, 2vw, 2rem);">
-        <p style="font-size:clamp(0.72rem, 1.3vw, 0.88rem);font-weight:500;letter-spacing:0.14em;color:var(--text-dim);">
+        <p class="hero-tagline">
             <span class="cursor">NO DUES. NO BUREAUCRACY. JUST RADIO</span>
         </p>
     </div>
 
     <!-- Title -->
     <h1 class="hero-enter" style="animation-delay:0.3s;">
-        <span class="seg seg-ghost" data-ghost="8888 8888888" style="font-size:clamp(2rem, 6vw, 4.5rem);line-height:0.95;display:block;width:fit-content;margin:0 auto;">HILL COUNTRY</span>
-        <span class="seg seg-ghost" data-ghost="88 88888888888" style="font-size:clamp(1.3rem, 4vw, 3rem);line-height:1;display:block;width:fit-content;margin:0.3em auto 0;">CQ ASSOCIATION</span>
+        <span class="seg seg-ghost seg-line-center hero-title-lg" data-ghost="8888 8888888">HILL COUNTRY</span>
+        <span class="seg seg-ghost seg-line-center hero-title-sm" data-ghost="88 88888888888">CQ ASSOCIATION</span>
     </h1>
 
     <!-- Frequency display -->
     <div class="hero-enter" style="animation-delay:0.6s;margin-top:clamp(1.25rem, 2.5vw, 2rem);">
-        <div id="freq-ghost" class="seg-ghost" data-ghost="88.888.888" style="font-family:var(--font-freq);font-weight:bold;font-size:clamp(2.5rem, 9vw, 6.5rem);letter-spacing:0.04em;">
-            <span id="freq-value" style="font-family:var(--font-freq);font-weight:bold;color:var(--orange-bright);position:relative;z-index:1;text-shadow:0 0 15px rgba(224,112,32,0.6),0 0 40px rgba(224,112,32,0.2),0 0 80px rgba(224,112,32,0.08);">14.250</span><span id="freq-hz" style="font-family:var(--font-freq);font-weight:bold;color:var(--orange);position:relative;z-index:1;text-shadow:0 0 10px rgba(224,112,32,0.4),0 0 25px rgba(224,112,32,0.12);">.000</span>
+        <div id="freq-ghost" class="seg-ghost freq-display" data-ghost="88.888.888">
+            <span id="freq-value" class="freq-main">14.250</span><span id="freq-hz" class="freq-sub">.000</span>
         </div>
         <div class="freq-status-row">
             <span><span id="tx-dot" class="dot" style="background:var(--text-muted);box-shadow:none;"></span> TX</span>
@@ -569,7 +812,7 @@
         </div>
 
         <!-- Bandscope -->
-        <canvas id="bandscope" style="width:clamp(240px, 55vw, 480px);height:clamp(32px, 4vw, 48px);display:block;margin:0.5rem auto 0;"></canvas>
+        <canvas id="bandscope" class="bandscope"></canvas>
     </div>
 
     <!-- Mode indicators -->
@@ -597,12 +840,12 @@
 
     <!-- CTAs -->
     <div class="hero-ctas hero-enter" style="animation-delay:1.05s;display:flex;flex-direction:column;align-items:center;gap:1rem;">
-        <div style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;">
+        <div class="cta-group">
             <a href="#involved" class="btn btn-primary">Join the Community</a>
             <a href="#about" class="btn btn-secondary">Learn More</a>
         </div>
-        <a href="#about" style="color:var(--text-muted);transition:color 0.2s;" aria-label="Scroll down">
-            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="animation:bounce 2s ease-in-out infinite;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg>
+        <a href="#about" class="scroll-down" aria-label="Scroll down">
+            <svg class="scroll-arrow" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg>
         </a>
     </div>
 
@@ -616,19 +859,19 @@
                 <div class="section-head">
                     <div class="label">About</div>
                 </div>
-                <h2 style="font-size:clamp(1.4rem, 3vw, 2.4rem);line-height:1.15;">
-                    <span class="seg seg-ghost" data-ghost="8 888888888 8888" style="display:block;">A DIFFERENT KIND</span>
-                    <span class="seg seg-ghost" data-ghost="88 88888 8888." style="display:block;">OF RADIO CLUB.</span>
+                <h2 class="h2-section">
+                    <span class="seg seg-ghost seg-line" data-ghost="8 888888888 8888">A DIFFERENT KIND</span>
+                    <span class="seg seg-ghost seg-line" data-ghost="88 88888 8888.">OF RADIO CLUB.</span>
                 </h2>
             </div>
             <div>
                 <p class="reveal">
-                    Hill Country CQ Association is a community of amateur radio operators based in the Texas Hill Country. We exist because we wanted something most ham radio clubs don't offer: a group focused on <strong style="color:var(--orange);">making contacts</strong>, not running an organization.
+                    Hill Country CQ Association is a community of amateur radio operators based in the Texas Hill Country. We exist because we wanted something most ham radio clubs don't offer: a group focused on <strong class="text-orange">making contacts</strong>, not running an organization.
                 </p>
-                <p class="reveal" style="margin-top:1.25rem;">
+                <p class="reveal p-spaced">
                     We're not a nonprofit. We don't do emergency communications drills. We don't have a board of directors, bylaws, or treasurer's reports. What we have is a group of operators who like chasing DX, ragchewing, POTA, contesting, and experimenting — and want to do it alongside others who feel the same way.
                 </p>
-                <p class="reveal" style="margin-top:1.25rem;">
+                <p class="reveal p-spaced">
                     If you've ever felt like ham radio clubs spend more time on procedure than on radio, this is the alternative.
                 </p>
             </div>
@@ -637,14 +880,14 @@
 </section>
 
 <!-- ========== MISSION ========== -->
-<section id="mission" style="background:var(--surface);">
+<section id="mission" class="bg-surface">
     <div class="wrap">
         <div class="reveal section-head" style="margin-bottom:3rem;">
             <div class="label">Mission</div>
-            <h2 style="font-size:clamp(1.3rem, 3vw, 2.2rem);line-height:1.2;">
-                <span class="seg seg-ghost" data-ghost="8888 88888888." style="display:block;">MAKE CONTACTS.</span>
-                <span class="seg seg-ghost" data-ghost="88888 888888888." style="display:block;">SHARE KNOWLEDGE.</span>
-                <span class="seg seg-ghost" data-ghost="88888 8888888888." style="display:block;">BUILD COMMUNITY.</span>
+            <h2 class="h2-mission">
+                <span class="seg seg-ghost seg-line" data-ghost="8888 88888888.">MAKE CONTACTS.</span>
+                <span class="seg seg-ghost seg-line" data-ghost="88888 888888888.">SHARE KNOWLEDGE.</span>
+                <span class="seg seg-ghost seg-line" data-ghost="88888 8888888888.">BUILD COMMUNITY.</span>
             </h2>
         </div>
 
@@ -676,26 +919,26 @@
                 <div class="section-head">
                     <div class="label">Meetings</div>
                 </div>
-                <h2 style="font-size:clamp(1.4rem, 3vw, 2.4rem);line-height:1.15;">
-                    <span class="seg seg-ghost" data-ghost="8888888." style="display:block;">MONTHLY.</span>
-                    <span class="seg seg-ghost" data-ghost="8888888." style="display:block;">FOCUSED.</span>
-                    <span class="seg seg-ghost" data-ghost="88888888 88888." style="display:block;">EVERYONE TALKS.</span>
+                <h2 class="h2-section">
+                    <span class="seg seg-ghost seg-line" data-ghost="8888888.">MONTHLY.</span>
+                    <span class="seg seg-ghost seg-line" data-ghost="8888888.">FOCUSED.</span>
+                    <span class="seg seg-ghost seg-line" data-ghost="88888888 88888.">EVERYONE TALKS.</span>
                 </h2>
             </div>
             <div>
                 <p class="reveal">
                     We meet once a month, either in-person in the Hill Country or virtually. The format is simple: everyone gets 5 to 10 minutes to present something.
                 </p>
-                <p class="reveal" style="margin-top:1.25rem;">
+                <p class="reveal p-spaced">
                     Worked a new country? Tell us about the contact. Built an antenna? Show us how it performs. Entered a contest? Break down your strategy. Bought a new rig? Give us the review. It doesn't have to be polished — it just has to be real.
                 </p>
 
                 <div class="reveal callout">
                     <div class="callout-label">
-                        <span class="dot dot-red" style="width:5px;height:5px;"></span>
+                        <span class="dot dot-red dot-sm"></span>
                         A Note on Participation
                     </div>
-                    <p style="font-size:0.88rem;line-height:1.8;color:var(--text);font-weight:400;">
+                    <p class="callout-body">
                         Participation isn't optional. We believe everyone has something worth sharing, and the best communities are the ones where everyone contributes. If you attend multiple meetings without presenting, we'll kindly ask you to step up — or step aside. This isn't about gatekeeping. It's about keeping the group active, engaged, and valuable for everyone who shows up.
                     </p>
                 </div>
@@ -705,23 +948,23 @@
 </section>
 
 <!-- ========== WELCOME ========== -->
-<section id="welcome" style="background:var(--surface);">
+<section id="welcome" class="bg-surface">
     <div class="wrap">
         <div class="split">
             <div class="reveal">
                 <div class="section-head">
                     <div class="label">Welcome</div>
                 </div>
-                <h2 style="font-size:clamp(1.4rem, 3vw, 2.4rem);line-height:1.15;">
-                    <span class="seg seg-ghost" data-ghost="88 888'88 8888 88888," style="display:block;">IF YOU'RE INTO RADIO,</span>
-                    <span class="seg seg-ghost" data-ghost="888'88 888 88 88." style="display:block;">YOU'RE ONE OF US.</span>
+                <h2 class="h2-section">
+                    <span class="seg seg-ghost seg-line" data-ghost="88 888'88 8888 88888,">IF YOU'RE INTO RADIO,</span>
+                    <span class="seg seg-ghost seg-line" data-ghost="888'88 888 88 88.">YOU'RE ONE OF US.</span>
                 </h2>
             </div>
             <div>
                 <p class="reveal">
                     Licensed operators of any class. People studying for their first license. Anyone genuinely interested in amateur radio. Your experience level doesn't matter — your willingness to participate does.
                 </p>
-                <p class="reveal" style="margin-top:1.25rem;">
+                <p class="reveal p-spaced">
                     Whether you're chasing DX on 20 meters, building SDR projects, experimenting with digital modes, or just got your Technician license last week — there's a place for you here.
                 </p>
             </div>
@@ -731,20 +974,20 @@
 
 <!-- ========== GET INVOLVED ========== -->
 <section id="involved">
-    <div class="wrap" style="text-align:center;">
+    <div class="wrap text-center">
         <div class="reveal">
-            <h2 class="seg seg-ghost" data-ghost="88888 88 8888?" style="font-size:clamp(1.4rem, 3.5vw, 2.6rem);letter-spacing:0.06em;display:block;width:fit-content;margin:0 auto;">READY TO JOIN?</h2>
+            <h2 class="seg seg-ghost seg-line-center h2-cta" data-ghost="88888 88 8888?">READY TO JOIN?</h2>
         </div>
-        <p class="reveal" style="color:var(--text);font-weight:400;max-width:34rem;margin:1.5rem auto 2.5rem;line-height:1.8;">
+        <p class="reveal cta-subtitle">
             Jump into the Discord for day-to-day conversation, or subscribe to the email list for meeting announcements and updates.
         </p>
 
-        <div class="reveal" style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+        <div class="reveal cta-group" style="gap:1rem;">
             <a href="https://discord.gg/XqE3DQr5GD" class="btn btn-primary">
                 <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
                 Join Discord
             </a>
-            <button class="btn btn-secondary" disabled style="opacity:0.4;cursor:not-allowed;position:relative;" title="Coming Soon — Join us on Discord" aria-disabled="true">
+            <button class="btn btn-secondary btn-disabled" disabled title="Coming Soon — Join us on Discord" aria-disabled="true">
                 <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                 Email List
             </button>
@@ -755,20 +998,20 @@
 </main>
 
 <!-- ========== FOOTER ========== -->
-<footer style="padding:3rem 0 2rem;border-top:1px solid var(--border);">
+<footer>
     <div class="footer-inner">
         <!-- CW waveform -->
-        <div style="margin-bottom:1.5rem;opacity:0.3;" aria-hidden="true">
-            <svg style="width:100%;height:8px;" viewBox="0 0 800 8" preserveAspectRatio="none">
+        <div class="footer-wave" aria-hidden="true">
+            <svg viewBox="0 0 800 8" preserveAspectRatio="none">
                 <path d="M0,4 C20,4 20,1 40,1 C60,1 60,7 80,7 C100,7 100,1 120,1 C140,1 140,7 160,7 C180,7 180,1 200,1 C220,1 220,7 240,7 C260,7 260,1 280,1 C300,1 300,7 320,7 C340,7 340,1 360,1 C380,1 380,7 400,7 C420,7 420,1 440,1 C460,1 460,7 480,7 C500,7 500,1 520,1 C540,1 540,7 560,7 C580,7 580,1 600,1 C620,1 620,7 640,7 C660,7 660,1 680,1 C700,1 700,7 720,7 C740,7 740,1 760,1 C780,1 780,4 800,4" fill="none" stroke="var(--orange-dim)" stroke-width="1"/>
             </svg>
         </div>
-        <div style="display:flex;align-items:center;justify-content:space-between;">
-            <div style="display:flex;align-items:center;gap:0.5rem;">
-                <span class="dot dot-orange" style="width:4px;height:4px;"></span>
-                <span style="font-size:0.62rem;font-weight:600;letter-spacing:0.15em;color:var(--text-muted);">HCCQ ASSOCIATION</span>
+        <div class="footer-row">
+            <div class="footer-brand">
+                <span class="dot dot-orange dot-xs"></span>
+                <span class="footer-label">HCCQ ASSOCIATION</span>
             </div>
-            <span class="seg-ghost" data-ghost="88" style="font-family:var(--font-freq);font-weight:bold;font-size:0.8rem;letter-spacing:0.1em;color:var(--text-muted);display:inline-block;">73</span>
+            <span class="seg-ghost footer-73" data-ghost="88">73</span>
         </div>
     </div>
 </footer>
@@ -785,8 +1028,8 @@
     const moonIcons = document.querySelectorAll('.theme-icon-moon');
     function updateThemeIcons() {
         const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-        sunIcons.forEach(el => el.style.display = isLight ? 'none' : '');
-        moonIcons.forEach(el => el.style.display = isLight ? '' : 'none');
+        sunIcons.forEach(el => el.classList.toggle('icon-hidden', isLight));
+        moonIcons.forEach(el => el.classList.toggle('icon-hidden', !isLight));
     }
     updateThemeIcons();
     function toggleTheme() {
@@ -806,16 +1049,16 @@
     menuBtn.addEventListener('click', () => {
         const isOpen = !mobileMenu.classList.contains('open');
         mobileMenu.classList.toggle('open');
-        menuIcon.style.display = isOpen ? 'none' : '';
-        closeIcon.style.display = isOpen ? '' : 'none';
+        menuIcon.classList.toggle('icon-hidden', isOpen);
+        closeIcon.classList.toggle('icon-hidden', !isOpen);
         menuBtn.setAttribute('aria-expanded', isOpen);
     });
 
     mobileMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.classList.remove('open');
-            menuIcon.style.display = '';
-            closeIcon.style.display = 'none';
+            menuIcon.classList.remove('icon-hidden');
+            closeIcon.classList.add('icon-hidden');
             menuBtn.setAttribute('aria-expanded', 'false');
         });
     });
